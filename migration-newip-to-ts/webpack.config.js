@@ -6,7 +6,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const EslingPlugin = require('eslint-webpack-plugin');
 
 const baseConfig = {
-    entry: path.resolve(__dirname, './src/index'),
+    entry: path.resolve(__dirname, './src/index.js'),
     mode: 'development',
     module: {
         rules: [
@@ -19,6 +19,14 @@ const baseConfig = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+                test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.(woff(2)?|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     resolve: {
@@ -27,6 +35,7 @@ const baseConfig = {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, '../dist'),
+        assetModuleFilename: 'assets/[name][ext]',
     },
     plugins: [
         new HtmlWebpackPlugin({
