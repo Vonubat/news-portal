@@ -1,5 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
+import { IArticle } from '../../types/index';
 
 class App {
     constructor() {
@@ -11,7 +12,7 @@ class App {
         document
             .querySelector('.sources')
             .addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
-        this.controller.getSources((data) => this.view.drawSources(data));
+        this.controller.getSources((data: IArticle) => this.view.drawSources(data));
     }
 }
 
