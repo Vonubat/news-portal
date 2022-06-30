@@ -1,19 +1,17 @@
-export interface IArticle {
-    status: string;
-    totalResults: number;
-    articles: {
-        source: {
-            id: string;
-            name: string;
-        };
-        author: string;
-        title: string;
-        description: string;
-        url: string;
-        urlToImage: string;
-        publishedAt: string;
-        content: string;
-    }[];
+/* https://newsapi.org/docs/endpoints info about API*/
+
+export interface IArticles {
+    source: {
+        id: string;
+        name: string;
+    };
+    author: string;
+    content: string;
+    title: string;
+    description: string;
+    url: string;
+    urlToImage: string;
+    publishedAt: string;
 }
 
 export interface ISources {
@@ -26,29 +24,13 @@ export interface ISources {
     country: string;
 }
 
-export interface INews {
-    source: {
-        id: string;
-        name: string;
-    };
-    author: string;
-    title: string;
-    description: string;
-    url: string;
-    urlToImage: string;
-    publishedAt: string;
-    content: string;
+export interface IGetArticles {
+    status: string;
+    totalResults: number;
+    articles: IArticles[];
 }
 
-/* export interface ISources {
+export interface IGetSources {
     status: string;
-    sources: {
-        id: string;
-        name: string;
-        description: string;
-        url: string;
-        category: string;
-        language: string;
-        country: string;
-    };
-} */
+    sources: ISources[];
+}
