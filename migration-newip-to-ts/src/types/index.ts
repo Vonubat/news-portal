@@ -30,21 +30,19 @@ export interface IGetArticles {
     totalResults: number;
     articles: IArticles[];
 }
-
+// types
 export interface IGetSources {
     status: string;
     sources: ISources[];
 }
 
-// loader.ts
 export type TGetResp = {
     endpoint: TEndpoint;
-} & TOptions;
+    options: TOptions;
+};
 
 export type TEndpoint = string;
 
-export type TOptions = {
-    options?: { [index: string]: string };
-};
+export type TOptions = { [index: string]: string };
 
 export type TMethod = 'GET' | 'POST';
