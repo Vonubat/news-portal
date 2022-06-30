@@ -1,6 +1,6 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
-import { IArticle } from '../../types/index';
+import { IArticles } from '../../types/index';
 
 class App {
     constructor() {

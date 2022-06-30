@@ -38,7 +38,7 @@ export interface IGetSources {
 
 export type TGetResp = {
     endpoint: TEndpoint;
-    options: TOptions;
+    options?: TOptions;
 };
 
 export type TEndpoint = string;
