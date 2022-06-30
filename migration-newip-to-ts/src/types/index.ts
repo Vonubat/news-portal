@@ -17,16 +17,13 @@ export interface IArticle {
 }
 
 export interface ISources {
-    status: string;
-    sources: {
-        id: string;
-        name: string;
-        description: string;
-        url: string;
-        category: string;
-        language: string;
-        country: string;
-    }[];
+    id: string;
+    name: string;
+    description: string;
+    url: string;
+    category: string;
+    language: string;
+    country: string;
 }
 
 export interface INews {
@@ -42,3 +39,16 @@ export interface INews {
     publishedAt: string;
     content: string;
 }
+
+/* export interface ISources {
+    status: string;
+    sources: {
+        id: string;
+        name: string;
+        description: string;
+        url: string;
+        category: string;
+        language: string;
+        country: string;
+    };
+} */
