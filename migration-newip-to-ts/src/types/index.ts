@@ -1,5 +1,6 @@
 /* https://newsapi.org/docs/endpoints info about API*/
 
+// common interfaces
 export interface IArticles {
     source: {
         id: string;
@@ -34,3 +35,16 @@ export interface IGetSources {
     status: string;
     sources: ISources[];
 }
+
+// loader.ts
+export type TGetResp = {
+    endpoint: TEndpoint;
+} & TOptions;
+
+export type TEndpoint = string;
+
+export type TOptions = {
+    options?: { [index: string]: string };
+};
+
+export type TMethod = 'GET' | 'POST';
