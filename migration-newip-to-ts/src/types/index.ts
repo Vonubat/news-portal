@@ -30,7 +30,7 @@ export interface IGetArticles {
     totalResults?: number;
     articles?: IArticles[];
 }
-// types
+
 export interface IGetSources {
     status: string;
     sources?: ISources[];
@@ -40,9 +40,17 @@ export type TGetResp = {
     endpoint: TEndpoint;
     options?: TOptions;
 };
+// types
 
 export type TEndpoint = string;
 
 export type TOptions = { [index: string]: string };
 
 export type TMethod = 'GET' | 'POST';
+
+// enums
+
+export enum StatusCodes {
+    Unauthorized = 401,
+    NotFound = 404,
+}

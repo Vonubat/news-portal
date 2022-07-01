@@ -1,4 +1,4 @@
-import { TOptions, TEndpoint, TGetResp, TMethod, IGetArticles, IGetSources } from '../../types/index';
+import { TOptions, TEndpoint, TGetResp, TMethod, IGetArticles, IGetSources, StatusCodes } from '../../types/index';
 
 class Loader {
     baseLink: string;
@@ -20,7 +20,7 @@ class Loader {
 
     errorHandler(res: Response): Response {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
+            if (res.status === StatusCodes.Unauthorized || res.status === StatusCodes.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
