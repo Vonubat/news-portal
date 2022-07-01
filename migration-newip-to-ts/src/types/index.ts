@@ -27,13 +27,13 @@ export interface ISources {
 
 export interface IGetArticles {
     status: string;
-    totalResults: number;
-    articles: IArticles[];
+    totalResults?: number;
+    articles?: IArticles[];
 }
 // types
 export interface IGetSources {
     status: string;
-    sources: ISources[];
+    sources?: ISources[];
 }
 
 export type TGetResp = {

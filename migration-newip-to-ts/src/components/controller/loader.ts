@@ -1,4 +1,4 @@
-import { TOptions, TEndpoint, TGetResp, TMethod, IGetArticles } from '../../types/index';
+import { TOptions, TEndpoint, TGetResp, TMethod, IGetArticles, IGetSources } from '../../types/index';
 
 class Loader {
     baseLink: string;
@@ -11,7 +11,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }: TGetResp,
-        callback: (data: IGetArticles) => void = (): void => {
+        callback: (data: IGetSources | IGetArticles) => void = (): void => {
             console.error('No callback for GET response');
         }
     ): void {
@@ -39,11 +39,16 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: TMethod, endpoint: TEndpoint, callback: (data: IGetArticles) => void, options: TOptions = {}): void {
+    load(
+        method: TMethod,
+        endpoint: TEndpoint,
+        callback: (data: IGetSources | IGetArticles) => void,
+        options: TOptions = {}
+    ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res: Response): Promise<IGetArticles> => res.json())
-            .then((data: IGetArticles): void => callback(data))
+            .then((res: Response): Promise<IGetSources | IGetArticles> => res.json())
+            .then((data: IGetSources | IGetArticles): void => callback(data))
             .catch((err: Error): void => console.error(err));
     }
 }
