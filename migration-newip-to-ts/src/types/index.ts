@@ -28,12 +28,12 @@ export interface ISources {
 export interface IGetArticles {
     status: string;
     totalResults?: number;
-    articles?: IArticles[];
+    articles?: Readonly<IArticles>[];
 }
 
 export interface IGetSources {
     status: string;
-    sources?: ISources[];
+    sources?: Readonly<ISources>[];
 }
 
 // types
