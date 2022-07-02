@@ -1,4 +1,4 @@
-import { TOptions, TEndpoint, TGetResp, TMethod, IGetArticles, IGetSources, StatusCodes } from '../../types/index';
+import { TOptions, TEndpoint, TGetResp, IGetArticles, IGetSources, StatusCodes } from '../../types/index';
 
 class Loader {
     private baseLink: string;
@@ -39,7 +39,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(
+    private load<TMethod extends string>(
         method: TMethod,
         endpoint: TEndpoint,
         callback: (data: IGetSources | IGetArticles) => void,

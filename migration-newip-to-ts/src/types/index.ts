@@ -47,8 +47,6 @@ export type TEndpoint = string;
 
 export type TOptions = { [index: string]: string };
 
-export type TMethod = 'GET' | 'POST';
-
 // enums
 
 export enum StatusCodes {
