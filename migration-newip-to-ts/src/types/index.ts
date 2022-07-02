@@ -36,11 +36,12 @@ export interface IGetSources {
     sources?: ISources[];
 }
 
+// types
+
 export type TGetResp = {
     endpoint: TEndpoint;
     options?: TOptions;
 };
-// types
 
 export type TEndpoint = string;
 

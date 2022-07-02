@@ -1,15 +1,15 @@
 import { TOptions, TEndpoint, TGetResp, TMethod, IGetArticles, IGetSources, StatusCodes } from '../../types/index';
 
 class Loader {
-    baseLink: string;
-    options: TOptions;
+    private baseLink: string;
+    private options: TOptions;
 
-    constructor(baseLink: string, options: TOptions) {
+    protected constructor(baseLink: string, options: TOptions) {
         this.baseLink = baseLink;
         this.options = options;
     }
 
-    getResp(
+    protected getResp(
         { endpoint, options = {} }: TGetResp,
         callback: (data: IGetSources | IGetArticles) => void = (): void => {
             console.error('No callback for GET response');
@@ -18,7 +18,7 @@ class Loader {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: Response): Response {
+    private errorHandler(res: Response): Response {
         if (!res.ok) {
             if (res.status === StatusCodes.Unauthorized || res.status === StatusCodes.NotFound)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -28,7 +28,7 @@ class Loader {
         return res;
     }
 
-    makeUrl(options: TOptions, endpoint: TEndpoint): string {
+    private makeUrl(options: TOptions, endpoint: TEndpoint): string {
         const urlOptions: TOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
@@ -39,7 +39,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(
+    private load(
         method: TMethod,
         endpoint: TEndpoint,
         callback: (data: IGetSources | IGetArticles) => void,

@@ -3,14 +3,14 @@ import { AppView } from '../view/appView';
 import { IGetArticles, IGetSources } from '../../types/index';
 
 class App {
-    controller: AppController;
-    view: AppView;
-    constructor() {
+    private controller: AppController;
+    private view: AppView;
+    public constructor() {
         this.controller = new AppController();
         this.view = new AppView();
     }
 
-    start(): void {
+    public start(): void {
         (document.querySelector('.sources') as HTMLDivElement).addEventListener('click', (e: MouseEvent): void =>
             this.controller.getNews(e, (data: IGetArticles): void => this.view.drawNews(data))
         );
