@@ -54,10 +54,11 @@ class App {
         document.addEventListener('click', function (e: MouseEvent): void {
             const target = e.target as HTMLElement;
             if (target.className.includes('source')) {
-                console.log(e);
-                const news = this.querySelector('.news') as HTMLElement;
-                const newsPagePosition: DOMRect = news.getBoundingClientRect();
-                window.scrollBy(newsPagePosition.x, newsPagePosition.y);
+                setTimeout(() => {
+                    const news = this.querySelector('.news') as HTMLElement;
+                    const newsPagePosition: DOMRect = news.getBoundingClientRect();
+                    window.scrollBy(newsPagePosition.x, newsPagePosition.y);
+                }, 500);
             }
         });
         // hide up button for non-scroll page
