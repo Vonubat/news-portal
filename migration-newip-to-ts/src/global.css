@@ -18,9 +18,27 @@ header {
 header h1 {
     font-size: 40px;
     font-weight: 800;
+    margin: 0px 0px 10px;
     white-space: nowrap;
     cursor: default;
     user-select: none;
+}
+
+header .copyright {
+    font-size: 14px;
+    color: rgb(100, 98, 98);
+    text-align: center;
+    white-space: nowrap;
+    margin: 5px;
+}
+header .copyright a {
+    color: rgb(196, 196, 196);
+}
+header .copyright a:hover {
+    color: rgb(253, 253, 253);
+}
+header .copyright:before {
+    content: '©';
 }
 
 header input {
@@ -40,7 +58,7 @@ footer {
     padding: 0px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 footer .logo {
@@ -62,27 +80,12 @@ footer .logo .github:hover {
     transition: all 0.5s;
     transform: scale(95%);
 }
-footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
-    white-space: nowrap;
-}
-footer .copyright a {
-    color: #444;
-}
-footer .copyright a:hover {
-    color: #555;
-}
-footer .copyright:before {
-    content: '©';
-}
 
 .up {
     display: none;
     position: fixed;
-    left: 5px;
-    bottom: 5px;
+    left: 20px;
+    bottom: 20px;
     opacity: 70%;
     z-index: 10;
     cursor: pointer;
@@ -92,11 +95,5 @@ footer .copyright:before {
     header {
         justify-content: center;
         flex-wrap: wrap;
-    }
-    footer {
-        height: 200px;
-        flex-wrap: wrap;
-        align-content: center;
-        justify-content: center;
     }
 } ;
