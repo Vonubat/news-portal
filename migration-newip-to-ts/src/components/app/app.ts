@@ -5,8 +5,8 @@ import { IGetArticles, IGetSources } from '../../types/index';
 class App {
     private controller: AppController;
     private view: AppView;
-    public searchInput: HTMLInputElement;
-    public up: HTMLImageElement;
+    private searchInput: HTMLInputElement;
+    private up: HTMLImageElement;
 
     public constructor() {
         this.controller = new AppController();
@@ -32,8 +32,8 @@ class App {
             }
         });
         // hide news accorting to user search
-        this.searchInput.addEventListener('keyup', function (e: KeyboardEvent): void {
-            console.log(e);
+        this.searchInput.addEventListener('keyup', function (/* e: KeyboardEvent */): void {
+            // console.log(e);
             const SOURCE_ITEMS = document.querySelectorAll('.source__item') as NodeListOf<HTMLDivElement>;
 
             for (let i = 0; i < SOURCE_ITEMS.length; i++) {
@@ -60,6 +60,17 @@ class App {
                 window.scrollBy(newsPagePosition.x, newsPagePosition.y);
             }
         });
+        // hide up button for non-scroll page
+        document.addEventListener(
+            'scroll',
+            function (elem: HTMLImageElement): void {
+                if (window.pageYOffset < 250) {
+                    elem.style.display = 'none';
+                } else {
+                    elem.style.display = 'inline';
+                }
+            }.bind(this, this.up)
+        );
     }
 }
 

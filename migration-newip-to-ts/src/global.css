@@ -79,6 +79,7 @@ footer .copyright:before {
 }
 
 .up {
+    display: none;
     position: fixed;
     left: 5px;
     bottom: 5px;
