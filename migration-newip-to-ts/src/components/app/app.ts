@@ -5,11 +5,14 @@ import { IGetArticles, IGetSources } from '../../types/index';
 class App {
     private controller: AppController;
     private view: AppView;
-    public SEARCH_INPUT: HTMLInputElement;
+    public searchInput: HTMLInputElement;
+    public up: HTMLImageElement;
+
     public constructor() {
         this.controller = new AppController();
         this.view = new AppView();
-        this.SEARCH_INPUT = document.querySelector('#search') as HTMLInputElement;
+        this.searchInput = document.querySelector('#search') as HTMLInputElement;
+        this.up = document.querySelector('.up') as HTMLImageElement;
     }
 
     public start(): void {
@@ -21,18 +24,16 @@ class App {
 
     public search(): void {
         // realization of search engine
-        this.SEARCH_INPUT.addEventListener('keydown', function (e: KeyboardEvent): false | undefined {
+        // disable enter action on input form
+        this.searchInput.addEventListener('keydown', function (e: KeyboardEvent): false | undefined {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 return false;
             }
         });
-
-        this.SEARCH_INPUT.addEventListener('keyup', function (e: KeyboardEvent): void {
-            e.key === 'Enter' ? e.preventDefault() : 42;
+        // hide news accorting to user search
+        this.searchInput.addEventListener('keyup', function (e: KeyboardEvent): void {
             console.log(e);
-
-            // e.preventDefault();
             const SOURCE_ITEMS = document.querySelectorAll('.source__item') as NodeListOf<HTMLDivElement>;
 
             for (let i = 0; i < SOURCE_ITEMS.length; i++) {
@@ -43,6 +44,20 @@ class App {
                 } else {
                     SOURCE_ITEMS[i].style.display = 'block';
                 }
+            }
+        });
+        // up site to top from any place
+        this.up.addEventListener('click', function (): void {
+            window.scrollTo(0, 0);
+        });
+        // delivery to news block
+        document.addEventListener('click', function (e: MouseEvent): void {
+            const target = e.target as HTMLElement;
+            if (target.className.includes('source')) {
+                console.log(e);
+                const news = this.querySelector('.news') as HTMLElement;
+                const newsPagePosition: DOMRect = news.getBoundingClientRect();
+                window.scrollBy(newsPagePosition.x, newsPagePosition.y);
             }
         });
     }
