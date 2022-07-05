@@ -52,4 +52,5 @@ export type TOptions = { [index: string]: string };
 export enum StatusCodes {
     Unauthorized = 401,
     NotFound = 404,
+    TooManyRequests = 429,
 }

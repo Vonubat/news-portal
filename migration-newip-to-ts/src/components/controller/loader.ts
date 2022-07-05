@@ -20,8 +20,18 @@ class Loader {
 
     private errorHandler(res: Response): Response {
         if (!res.ok) {
-            if (res.status === StatusCodes.Unauthorized || res.status === StatusCodes.NotFound)
+            if (
+                res.status === StatusCodes.Unauthorized ||
+                res.status === StatusCodes.NotFound ||
+                res.status === StatusCodes.TooManyRequests
+            ) {
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
+            }
+            if (res.status === StatusCodes.TooManyRequests) {
+                alert(
+                    'Sorry, overlimit of requests for a day. Free API key supports only 1000 request per a day. Welcome back after 24 four hours.'
+                );
+            }
             throw Error(res.statusText);
         }
 

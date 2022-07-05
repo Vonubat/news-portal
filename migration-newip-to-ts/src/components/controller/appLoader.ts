@@ -9,3 +9,5 @@ class AppLoader extends Loader {
 }
 
 export default AppLoader;
+
+// original API key: 985d9f59ff4a4b03bbf53711973433b4
