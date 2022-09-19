@@ -1,6 +1,31 @@
+.news {
+    flex-grow: 2;
+    margin: 0 10px 0 20px;
+    overflow-y: auto;
+}
+
+.news::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+.news::-webkit-scrollbar:vertical {
+    width: 11px;
+}
+.news::-webkit-scrollbar:horizontal {
+    height: 11px;
+}
+.news::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 2px solid white;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.news::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 8px;
+}
+
 .news__item {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin: 1rem auto;
     margin-bottom: 1.6%;
     background: #fff;

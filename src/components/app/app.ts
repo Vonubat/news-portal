@@ -6,13 +6,11 @@ class App {
     private controller: AppController;
     private view: AppView;
     private searchInput: HTMLInputElement;
-    private up: HTMLImageElement;
 
     public constructor() {
         this.controller = new AppController();
         this.view = new AppView();
         this.searchInput = document.querySelector('#search') as HTMLInputElement;
-        this.up = document.querySelector('.up') as HTMLImageElement;
     }
 
     public start(): void {
@@ -46,32 +44,6 @@ class App {
                 }
             }
         });
-        // up site to top from any place
-        this.up.addEventListener('click', function (): void {
-            window.scrollTo(0, 0);
-        });
-        // delivery to news block
-        document.addEventListener('click', function (e: MouseEvent): void {
-            const target = e.target as HTMLElement;
-            if (target.className.includes('source')) {
-                setTimeout(() => {
-                    const news = this.querySelector('.news') as HTMLElement;
-                    const newsPagePosition: DOMRect = news.getBoundingClientRect();
-                    window.scrollBy(newsPagePosition.x, newsPagePosition.y);
-                }, 500);
-            }
-        });
-        // hide up button for non-scroll page
-        document.addEventListener(
-            'scroll',
-            function (elem: HTMLImageElement): void {
-                if (window.pageYOffset < 250) {
-                    elem.style.display = 'none';
-                } else {
-                    elem.style.display = 'inline';
-                }
-            }.bind(this, this.up)
-        );
     }
 }
 

@@ -14,16 +14,6 @@
                 <p class="copyright">Copyright <a href="https://newsapi.org">NewsAPI</a> [2022]</p>
             </div>
 
-            <form action="">
-                <label for="search"></label>
-                <input type="search" id="search" name="search" placeholder="Search" />
-            </form>
-        </header>
-        <main>
-            <div class="sources buttons"></div>
-            <div class="news"></div>
-        </main>
-        <footer>
             <div class="logo">
                 <a href="https://github.com/Vonubat" target="_blank">
                     <img class="github" src="./assets/icons-github.svg" alt="hithub-logo"
@@ -32,8 +22,16 @@
                     <img class="rs-school" src="./assets/rs-school-logo.svg" alt="rs-school-logo"
                 /></a>
             </div>
-        </footer>
-        <img class="up" src="./assets/up.png" alt="" />
+
+            <form action="">
+                <label for="search"></label>
+                <input type="search" id="search" name="search" placeholder="Search" />
+            </form>
+        </header>
+        <main id="main">
+            <div class="sources buttons"></div>
+            <div class="news" id="news"></div>
+        </main>
         <template id="sourceItemTemp">
             <div class="source__item">
                 <span class="source__item-name"></span>

@@ -8,11 +8,38 @@ body {
     font-family: sans-serif;
 }
 
+#main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-height: 85vh;
+}
+
 header {
     padding: 10px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo .rs-school {
+    height: 90px;
+}
+header .logo .github {
+    height: 100px;
+}
+header .logo .rs-school:hover {
+    transition: all 0.5s;
+    transform: scale(95%);
+}
+header .logo .github:hover {
+    transition: all 0.5s;
+    transform: scale(95%);
 }
 
 header h1 {
@@ -55,6 +82,7 @@ header input::-webkit-search-cancel-button {
 
 footer {
     height: 100px;
+    margin-top: 10px;
     padding: 0px 30px;
     display: flex;
     align-items: center;
@@ -91,9 +119,14 @@ footer .logo .github:hover {
     cursor: pointer;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 750px) {
+    #main {
+        flex-direction: column;
+        max-height: 100%;
+    }
+
     header {
         justify-content: center;
-        flex-wrap: wrap;
+        flex-direction: column;
     }
 } ;
